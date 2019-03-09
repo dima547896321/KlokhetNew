@@ -1,0 +1,56 @@
+{
+  "status": {
+    "success": true,
+    "messages": "Context schedule"
+  },
+  "data": {
+    "group": [
+      {
+        "id": 30,
+        "name": "\u044b\u0432\u044b\u0444\u0432\u044b\u0444\u0432"
+      },
+      {
+        "id": 32,
+        "name": "test"
+      }
+    ],
+    "location": [
+      {
+        "id": 2,
+        "name": "11111"
+      },
+      {
+        "id": 28,
+        "name": "SapientPro"
+      },
+      {
+        "id": 35,
+        "name": "New South Wales, Australia"
+      },
+      {
+        "id": 36,
+        "name": "Australia Street, Annandale New South Wales, Australia"
+      }
+    ],
+    "lesson": [
+      {
+        "id": 29,
+        "name": "qwerty"
+      },
+      {
+        "id": 32,
+        "name": "\u0442\u0443\u0446 \u0444\u0432\u0456\u0430\u0444\u0456\u0432\u0430"
+      }
+    ],
+    "lessonType": [
+      {
+        "id": 19,
+        "name": "read"
+      },
+      {
+        "id": 20,
+        "name": "\u043a\u043a\u0443\u043a"
+      }
+    ]
+  }
+}

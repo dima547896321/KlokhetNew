@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Klokhet</string>
+    <string name="server_error">Something went wrong please try again later</string>
+    <string name="no_internet_connection">No internet connection</string>
+    <string name="progress_bar_container">Progress container not found</string>
+    <string name="terms_policy_markdown">by continuing you accept our\n Terms and Conditions and Privacy Policy</string>
+    <string name="SIGN_IN">SIGN IN</string>
+    <string name="check_in">check in</string>
+    <string name="check_out">check out</string>
+    <string name="cancel">Cancel</string>
+    <string name="start">start</string>
+    <string name="manual_mode">manual mode</string>
+    <string name="logout">Logout</string>
+    <string name="get_new_password">get new password</string>
+    <string name="forgot_your_password">Forgot password?</string>
+
+    <string name="terms_of_service">Terms and Conditions</string>
+    <string name="privacy_policy">Privacy Policy</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

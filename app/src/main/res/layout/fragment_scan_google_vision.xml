@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".flow.main.tabs.ScannerFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+
+        android:id="@+id/tab_bar"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="32dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvScannerQR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+
+            android:layout_weight="1"
+            android:fontFamily="@font/pt_regular"
+            android:text="Scan QR"
+            android:textColor="@color/black"
+            android:textSize="22sp" />
+
+        <ImageView
+            android:id="@+id/ivFlipCam"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ic_flip_camera" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/llLessonsInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tab_bar"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="15dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvLabelLesson"
+                style="@style/LessonsLabel"
+                android:layout_marginBottom="5dp"
+                android:text="Lesson:" />
+
+            <TextView
+                android:id="@+id/tvLabelGroup"
+                style="@style/LessonsLabel"
+                android:layout_marginBottom="5dp"
+                android:text="Group:" />
+
+            <TextView
+                android:id="@+id/tvLabelOn"
+                style="@style/LessonsLabel"
+                android:layout_marginBottom="5dp"
+                android:text="On:" />
+
+            <TextView
+                android:id="@+id/tvLabelLocation"
+                style="@style/LessonsLabel"
+                android:layout_marginBottom="5dp"
+                android:text="Location:" />
+
+            <TextView
+                android:id="@+id/tvLabelTeacher"
+                style="@style/LessonsLabel"
+                android:layout_marginBottom="5dp"
+                android:text="Teacher:" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/tvLesson"
+                style="@style/LessonsText"
+                android:layout_marginBottom="5dp"
+                tools:text="asdfasdfasdfasdf" />
+
+            <TextView
+                android:id="@+id/tvGroup"
+                style="@style/LessonsText"
+                android:layout_marginBottom="5dp"
+                tools:text="asdfasdfasdfasdf" />
+
+            <TextView
+                android:id="@+id/tvOn"
+                style="@style/LessonsText"
+                android:layout_marginBottom="5dp"
+                tools:text="asdfasdfasdfasdf" />
+
+            <TextView
+                android:id="@+id/tvLocation"
+                style="@style/LessonsText"
+                android:layout_marginBottom="5dp"
+                tools:text="asdfasdfasdfasdf" />
+
+            <TextView
+                android:id="@+id/tvTeacher"
+                style="@style/LessonsText"
+                android:layout_marginBottom="5dp"
+                tools:text="asdfasdfasdfasdf" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/llLessonsInfo">
+
+        <FrameLayout
+            android:id="@+id/fm_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:visibility="visible" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/transparent"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <include
+            android:id="@+id/layChekinUser"
+            layout="@layout/layout_chekin_user"
+            android:visibility="gone" />
+
+        <include
+            android:id="@+id/layShowOk"
+            layout="@layout/layout_circle_shadow"
+            android:visibility="gone" />
+    </FrameLayout>
+</RelativeLayout>

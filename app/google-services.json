@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "5333066250",
+    "firebase_url": "https://klok-3b88c.firebaseio.com",
+    "project_id": "klok-3b88c",
+    "storage_bucket": "klok-3b88c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:5333066250:android:95dbf4d74cdae38f",
+        "android_client_info": {
+          "package_name": "nl.klokhet.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "5333066250-0okgjvqr61u1pvh10kt1gcbcfegtiq4f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAU5WS7Yt58vWjhxx9ql9Sx-Hiyylct7pA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

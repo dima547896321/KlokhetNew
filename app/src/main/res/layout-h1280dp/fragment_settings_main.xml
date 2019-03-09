@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp">
+    <RelativeLayout
+
+        android:id="@+id/tab_bar"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="32dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvScannerQR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+
+            android:layout_weight="1"
+            android:fontFamily="@font/pt_regular"
+            android:text="Settings"
+            android:textColor="@color/black"
+            android:textSize="22sp" />
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/view">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:paddingBottom="10dp">
+
+            <ImageView
+                android:id="@+id/tvUserPhoto"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_above="@+id/tvUserName"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:src="@drawable/ic_user" />
+
+            <TextView
+                android:id="@+id/tvUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/tvSchool"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/pt_regular"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/tvSchool"
+                style="@style/LessonsText"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:text="" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="65dp"
+        android:layout_marginEnd="65dp"
+        android:background="@color/view_default" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_below="@+id/view">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+            <LinearLayout
+                android:id="@+id/llLeson"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="5dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvLabelLesson"
+                        style="@style/LessonsLabel"
+                        android:layout_marginBottom="5dp"
+                        android:text="Lesson: " />
+                    <TextView
+                        android:id="@+id/tvLabelOn"
+                        style="@style/LessonsLabel"
+                        android:text="On:" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llOn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/llLeson"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="vertical">
+
+
+
+
+                    <TextView
+                        android:id="@+id/tvLesson"
+                        android:layout_marginBottom="5dp"
+                        style="@style/LessonsText" />
+                    <TextView
+                        android:id="@+id/tvOn"
+                        style="@style/LessonsText" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnManualMode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/llLeson"
+                android:layout_marginTop="45dp"
+                android:background="@drawable/btn_shape_round_green"
+                android:padding="10dp"
+                android:text="@string/manual_mode"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+            <FrameLayout
+                android:layout_width="match_parent"
+
+                android:layout_below="@+id/btnManualMode"
+                android:layout_centerHorizontal="true"
+                android:layout_height="match_parent">
+            <Button
+                android:id="@+id/btnLogout"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:drawableStart="@drawable/ic_logout"
+                android:drawablePadding="15dp"
+                android:fontFamily="@font/pt_regular"
+                android:padding="10dp"
+                android:text="@string/logout"
+                android:textAllCaps="false"
+                android:textColor="@color/veryLightPink"
+                android:textSize="18sp" />
+            </FrameLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/fragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible" />
+</RelativeLayout>

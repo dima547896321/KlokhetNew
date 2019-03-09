@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="intro_header_text">20sp</dimen>
+    <dimen name="intro_description_text">16sp</dimen>
+    <dimen name="intro_icon_dimen">81dp</dimen>
+    <dimen name="marginLeft">16dp</dimen>
+</resources>
