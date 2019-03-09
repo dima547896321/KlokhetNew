@@ -38,7 +38,6 @@ import com.bumptech.glide.request.RequestOptions;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.vision.barcode.Barcode;
 import com.notbytes.barcode_reader.BarcodeReaderFragment;
-import com.patloew.rxlocation.RxLocation;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -81,7 +80,6 @@ public class ScannerFragmentGoogleVisionFragment extends Fragment implements Bar
     TextView layUserIn;
     Button layBtnChekin;
     Button layBtnCancel;
-    RxLocation rxLocation;
     Handler handler = new Handler();
     AlertDialog dialog;  //dialog for show empty lesson
     AlertDialog alertDialogShowGps;

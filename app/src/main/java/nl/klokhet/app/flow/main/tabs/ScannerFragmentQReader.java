@@ -35,7 +35,6 @@ import com.budiyev.android.codescanner.CodeScannerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.google.android.gms.location.LocationRequest;
-import com.patloew.rxlocation.RxLocation;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -78,7 +77,6 @@ public class ScannerFragmentQReader extends Fragment {
     TextView layUserIn;
     Button layBtnChekin;
     Button layBtnCancel;
-    RxLocation rxLocation;
     Handler handler = new Handler();
     AlertDialog dialog;  //dialog for show empty lesson
     private TextView tvLesson;

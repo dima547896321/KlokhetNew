@@ -275,7 +275,9 @@ public class MainActivity extends BaseActivity implements MainView, LocationList
                 ((ListFragment) pagerAdapter.getItem(1)).showGroupInfo(list);
             }
         } else {
-            showDialogNoLeasson();
+            if (dialog == null || !dialog.isShowing() && viewPager.getCurrentItem() != 2) {
+                showDialogNoLeasson();
+            }
         }
     }
 
@@ -368,5 +370,13 @@ public class MainActivity extends BaseActivity implements MainView, LocationList
     @Override
     public void showToast(String message) {
         super.showToast(message);
+    }
+
+    @Override
+    protected void onStop() {
+        if(dialog!=null){
+            dialog.dismiss();
+        }
+        super.onStop();
     }
 }

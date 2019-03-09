@@ -34,6 +34,7 @@ import nl.klokhet.app.flow.main.MainActivity;
 import nl.klokhet.app.flow.webview.WebActivity;
 import nl.klokhet.app.utils.PrefUtil;
 import nl.klokhet.app.utils.TextViewUtils;
+import timber.log.Timber;
 
 import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 
@@ -141,6 +142,7 @@ public class LoginActivity extends BaseActivity implements LoginView, View.OnCli
         setUpTermsAndPolicyPrivacy();
         changeButtonColorState();
         if (PrefUtil.getAutologin()) {
+            Timber.d("Start autologin");
             mLoginPresenter.login(PrefUtil.getUserEmail(), PrefUtil.getUserPass(), PrefUtil.getAutologin());
         }
     }
@@ -185,6 +187,7 @@ public class LoginActivity extends BaseActivity implements LoginView, View.OnCli
     }
 
     private void allPermissionsGrunted() {
+        Timber.d("Start allPermissionsGrunted");
         mLoginPresenter.login("Illya_Vorobets_1", "111111", checkBox.isChecked());
 //        mLoginPresenter.login("Illya_Vorobets_1", "6Pz9EWexuP", checkBox.isChecked());
 //        mLoginPresenter.login("Sasha_Zyruk_1", "N8BkBQLV1L", checkBox.isChecked());
