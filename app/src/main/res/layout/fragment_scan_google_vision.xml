@@ -152,7 +152,7 @@
         <include
             android:id="@+id/layChekinUser"
             layout="@layout/layout_chekin_user"
-            android:visibility="gone" />
+            android:visibility="visible" />
 
         <include
             android:id="@+id/layShowOk"

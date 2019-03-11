@@ -19,6 +19,7 @@
             android:id="@+id/tvUserPhoto"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
             android:layout_weight="3"
             android:src="@drawable/ic_user" />
 
@@ -38,7 +39,8 @@
                 android:fontFamily="@font/pt_regular"
                 android:gravity="center_horizontal"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:maxLines="1"/>
 
             <TextView
                 android:id="@+id/tvUserLastName"
@@ -47,6 +49,7 @@
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/pt_regular"
                 android:gravity="center_horizontal"
+                android:maxLines="1"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 

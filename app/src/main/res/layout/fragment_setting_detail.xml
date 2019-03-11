@@ -13,7 +13,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="48dp"
+        android:layout_marginBottom="16dp"
         android:orientation="horizontal">
 
         <ImageView
@@ -39,16 +39,16 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/tab_bar"
         android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp">
+        android:layout_marginEnd="32dp"
+        android:scrollbars="none">
 
 
         <LinearLayout
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:orientation="vertical"
-            android:paddingTop="16dp">
+            android:paddingTop="8dp">
 
             <TextView
                 style="@style/manualMode"

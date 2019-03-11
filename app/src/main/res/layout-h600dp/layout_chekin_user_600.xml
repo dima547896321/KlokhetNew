@@ -38,6 +38,7 @@
                 android:fontFamily="@font/pt_regular"
                 android:gravity="center_horizontal"
                 android:textColor="@color/black"
+                android:maxLines="1"
                 android:textSize="22sp" />
 
             <TextView
@@ -48,6 +49,7 @@
                 android:fontFamily="@font/pt_regular"
                 android:gravity="center_horizontal"
                 android:textColor="@color/black"
+                android:maxLines="1"
                 android:textSize="22sp" />
 
 

@@ -374,7 +374,7 @@ public class MainActivity extends BaseActivity implements MainView, LocationList
 
     @Override
     protected void onStop() {
-        if(dialog!=null){
+        if (dialog != null) {
             dialog.dismiss();
         }
         super.onStop();

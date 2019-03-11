@@ -24,13 +24,9 @@ public class App extends Application {
         super.onCreate();
         Fabric.with(this, new Crashlytics());
         sInstance = this;
-        Stetho.initializeWithDefaults(this);
-//        Fabric.with(this, new Crashlytics());
         sService = NetworkModule.getBackEndService();
         if (BuildConfig.DEBUG) {
             Timber.plant(new Timber.DebugTree());
         }
     }
-
-
 }

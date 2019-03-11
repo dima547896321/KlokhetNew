@@ -380,7 +380,7 @@ public class ScannerFragmentGoogleVisionFragment extends Fragment implements Bar
             return;
         }
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getContext());
-        alertDialogBuilder.setMessage("GPS is disabled in your device. Would you like to enable it?")
+        alertDialogBuilder.setMessage("GPS is disabled on your device. Would you like to enable it?")
                 .setCancelable(false)
                 .setPositiveButton("Goto Settings Page To Enable GPS",
                         (dialog, id) -> {
