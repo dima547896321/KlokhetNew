@@ -188,10 +188,10 @@ public class LoginActivity extends BaseActivity implements LoginView, View.OnCli
 
     private void allPermissionsGrunted() {
         Timber.d("Start allPermissionsGrunted");
-//        mLoginPresenter.login("Illya_Vorobets_1", "111111", checkBox.isChecked());
+        mLoginPresenter.login("Illya_Vorobets_1", "111111", checkBox.isChecked());
 //        mLoginPresenter.login("Illya_Vorobets_1", "6Pz9EWexuP", checkBox.isChecked());
 //        mLoginPresenter.login("Sasha_Zyruk_1", "N8BkBQLV1L", checkBox.isChecked());
-        mLoginPresenter.login(etEmail.getText().toString().trim(), etPassword.getText().toString(), checkBox.isChecked());
+//        mLoginPresenter.login(etEmail.getText().toString().trim(), etPassword.getText().toString(), checkBox.isChecked());
     }
 
     private void checkPermissionsCamera() {

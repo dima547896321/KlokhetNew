@@ -274,6 +274,8 @@ public class ScannerFragmentGoogleVisionFragment extends Fragment implements Bar
         super.onResume();
         if (readerFragment != null) {
             readerFragment.resumeScanning();
+        }else{
+            Timber.d("Camera cannot be started - object null");
         }
     }
 
@@ -281,7 +283,7 @@ public class ScannerFragmentGoogleVisionFragment extends Fragment implements Bar
     @Override
     public void onPause() {
         if (readerFragment != null) {
-            readerFragment.pauseScanning();
+            readerFragment.onPause();
         }
         if (alertDialogShowGps != null) {
             alertDialogShowGps.cancel();

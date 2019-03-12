@@ -43,10 +43,10 @@ public class SettingDetailFragment extends Fragment implements View.OnClickListe
     Calendar timePickerEnd = Calendar.getInstance();
     SimpleDateFormat sdf = new SimpleDateFormat("dd / MM / yyyy");
     int DIALOG_TIME = 1;
-    private Spinner spLesson;
-    private Spinner spLessonType;
-    private Spinner spGroup;
-    private Spinner spLocation;
+    private nl.klokhet.app.ui.CustomSpinner spLesson;
+    private nl.klokhet.app.ui.CustomSpinner spLessonType;
+    private nl.klokhet.app.ui.CustomSpinner spGroup;
+    private nl.klokhet.app.ui.CustomSpinner spLocation;
     private TextView tvLessonDate;
     private Button btnStart;
     private Date selectedDate;
@@ -99,6 +99,7 @@ public class SettingDetailFragment extends Fragment implements View.OnClickListe
     }
 
     private void setStartDate() {
+        timePickerStart.set(Calendar.MINUTE, timePickerStart.get(Calendar.MINUTE) - timePickerStart.get(Calendar.MINUTE)%5);
         String hour = String.valueOf(timePickerStart.get(Calendar.HOUR_OF_DAY));//> 9 ? timePickerStart.get(Calendar.HOUR) + "" : "0" + timePickerStart.get(Calendar.HOUR) + "";
         int min = timePickerStart.get(Calendar.MINUTE);
         String minutes = min > 9 ? String.valueOf(timePickerStart.get(Calendar.MINUTE)) : "0" + String.valueOf(timePickerStart.get(Calendar.MINUTE));//> 9 ? timePickerStart.get(Calendar.MINUTE) + "" : "0" + timePickerStart.get(Calendar.MINUTE) + "";
@@ -106,6 +107,7 @@ public class SettingDetailFragment extends Fragment implements View.OnClickListe
     }
 
     private void setEndDate() {
+        timePickerEnd.set(Calendar.MINUTE, timePickerEnd.get(Calendar.MINUTE) - timePickerEnd.get(Calendar.MINUTE)%5);
         String hour1 = String.valueOf(timePickerEnd.get(Calendar.HOUR_OF_DAY));// > 9 ? timePickerEnd.get(Calendar.HOUR) + "" : "0" + timePickerEnd.get(Calendar.HOUR) + "";
         int min = timePickerEnd.get(Calendar.MINUTE);
         String minutes = min > 9 ? String.valueOf(timePickerEnd.get(Calendar.MINUTE)) : "0" + String.valueOf(timePickerEnd.get(Calendar.MINUTE));

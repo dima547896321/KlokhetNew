@@ -22,8 +22,8 @@ android {
         applicationId "nl.klokhet.app"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 18
-        versionName '1.18_debug'
+        versionCode 19
+        versionName '1.19_debug'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
 
