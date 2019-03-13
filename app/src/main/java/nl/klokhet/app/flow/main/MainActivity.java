@@ -26,6 +26,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.arellomobile.mvp.presenter.InjectPresenter;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,6 +54,7 @@ public class MainActivity extends BaseActivity implements MainView, LocationList
     public static LessonsResponce lessonsResponce;
     public static SheduleContextResponce shedulerContext;
     public static Location location;
+    public static List<UserInGroup> groupList;
     public LocationManager locationManager;
     @InjectPresenter
     MainPresenter mLoginPresenter;
@@ -62,7 +64,6 @@ public class MainActivity extends BaseActivity implements MainView, LocationList
     AlertDialog dialog;
     Disposable d;
     private FragmentsViewPagerAdapter pagerAdapter;
-    private List<UserInGroup> groupList;
 
     public static void start(Context context) {
         start(context, true);
@@ -177,12 +178,15 @@ public class MainActivity extends BaseActivity implements MainView, LocationList
     @Override
     protected void onResume() {
         super.onResume();
+        Timber.d("onResume Activity");
         startTraking();
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
                 && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             LoginActivity.start(this, true);
             finish();
+            Timber.d("Permission Activity not grunted");
         } else {
+            Timber.d("Permission Activity not grunted");
             locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 100, 0f, this);
             locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 100, 0f, this);
@@ -216,14 +220,16 @@ public class MainActivity extends BaseActivity implements MainView, LocationList
 
     @Override
     public void showLessonsInfo(LessonsResponce mLessonsResponce) {
+        Timber.d("Resived data: " + new Gson().toJson(mLessonsResponce));
         lessonsResponce = mLessonsResponce;
         if (lessonsResponce != null && lessonsResponce.getCurrent() != null) {
+            Timber.d("sended to ScannerFragmentGoogleVisionFragment: ");
             ((ScannerFragmentGoogleVisionFragment) pagerAdapter.getItem(0)).showCurrentLesson(lessonsResponce.getCurrent());
-
             if (dialog != null && dialog.isShowing()) {
                 dialog.dismiss();
             }
         } else {
+            Timber.d("false block: ");
             ((ListFragment) pagerAdapter.getItem(1)).showCurrentLesson(null);
             ((ListFragment) pagerAdapter.getItem(1)).showGroupInfo(new ArrayList<>());
             ((SettingsMainFragment) pagerAdapter.getItem(2)).bindTeacher();

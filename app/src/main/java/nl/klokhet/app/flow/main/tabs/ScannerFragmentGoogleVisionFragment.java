@@ -113,7 +113,7 @@ public class ScannerFragmentGoogleVisionFragment extends Fragment implements Bar
     }
 
     public void showManualModeDialog() {
-        if (isResumed() && alertDialogShowGps != null && alertDialogShowGps.isShowing()) {
+        if (alertDialogShowGps != null && alertDialogShowGps.isShowing()) {
             alertDialogShowGps.cancel();
         }
     }
@@ -272,10 +272,17 @@ public class ScannerFragmentGoogleVisionFragment extends Fragment implements Bar
     @Override
     public void onResume() {
         super.onResume();
+        Timber.d(this.getClass().getSimpleName() + "onResume");
         if (readerFragment != null) {
             readerFragment.resumeScanning();
-        }else{
+        } else {
             Timber.d("Camera cannot be started - object null");
+        }
+        try {
+            Timber.d(this.getClass().getSimpleName() + "onResume");
+            showCurrentLesson(MainActivity.lessonsResponce.getCurrent());
+        } catch (Exception e) {
+            Timber.d(this.getClass().getSimpleName() + "lesson is null");
         }
     }
 
@@ -288,6 +295,7 @@ public class ScannerFragmentGoogleVisionFragment extends Fragment implements Bar
         if (alertDialogShowGps != null) {
             alertDialogShowGps.cancel();
         }
+        Timber.d(this.getClass().getSimpleName() + "onPause");
         super.onPause();
     }
 
@@ -305,6 +313,7 @@ public class ScannerFragmentGoogleVisionFragment extends Fragment implements Bar
 
     @Override
     public void onDestroy() {
+        Timber.d(this.getClass().getSimpleName() + "onDestroy");
         super.onDestroy();
         if (compositeDisposable != null && !compositeDisposable.isDisposed()) {
             compositeDisposable.dispose();
@@ -318,17 +327,26 @@ public class ScannerFragmentGoogleVisionFragment extends Fragment implements Bar
     }
 
     public void showCurrentLesson(Lesson lesson) {
-        if (!isResumed()) {
+        this.lesson = lesson;
+        Timber.d("bind lesson: 331");
+        bindLesson();
+
+    }
+
+    private void bindLesson() {
+        if(tvLesson==null){
+            Timber.d("bind lesson: tvLesson is null");
             return;
         }
-        this.lesson = lesson;
         if (lesson == null) {
+            Timber.d("if : " + "lesson is null ");
             tvLesson.setText("");
             tvGroup.setText("");
             tvOn.setText("");
             tvLocation.setText("");
             tvTeacher.setText("");
         } else {
+            Timber.d("if : " + "lesson is not null ");
             StringBuffer stringBuffer = new StringBuffer();
             if (lesson.getName() != null && !lesson.getName().isEmpty()) {
                 stringBuffer.append(lesson.getName() + " ");
@@ -350,6 +368,7 @@ public class ScannerFragmentGoogleVisionFragment extends Fragment implements Bar
                 tvOn.setText(sdfOut.format(date) + " - " + sdfOut1.format(date1));
             } catch (ParseException e) {
                 tvOn.setText("");
+                Timber.d("ParseException: " + e.getMessage());
             }
             tvLocation.setText(lesson.getLocationName());
             tvTeacher.setText(lesson.getTeacherName());
@@ -359,9 +378,9 @@ public class ScannerFragmentGoogleVisionFragment extends Fragment implements Bar
     private boolean CheckStartTime(UserInGroup user) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         try {
-            Date startDaate = sdf.parse(user.getTime().getDate());
+            Date startDate = sdf.parse(user.getTime().getDate());
             Date now = new Date();
-            if (startDaate.before(now)) {
+            if (startDate.before(now)) {
                 return true;
             } else {
                 showToast("Lesson not start");
@@ -370,6 +389,7 @@ public class ScannerFragmentGoogleVisionFragment extends Fragment implements Bar
                 return false;
             }
         } catch (ParseException e) {
+            Timber.d("CheckStartTime ParseException: " + e.getMessage());
             return false;
         }
     }
@@ -479,6 +499,7 @@ public class ScannerFragmentGoogleVisionFragment extends Fragment implements Bar
                 r.play();
             } catch (Exception e) {
                 Timber.d(e.getMessage());
+
             }
         }
     }
@@ -496,7 +517,11 @@ public class ScannerFragmentGoogleVisionFragment extends Fragment implements Bar
             Timber.d("Not in tub");
             return;
         }
-        if (MainActivity.lessonsResponce != null && MainActivity.location != null && compositeDisposable != null) {
+        if (MainActivity.lessonsResponce == null || MainActivity.lessonsResponce.getCurrent() == null || MainActivity.lessonsResponce.getCurrent().getId() == null) {
+            Timber.d("We not have lesson info");
+            return;
+        }
+        if (MainActivity.location != null && compositeDisposable != null) {
             if (layChekinUser.getVisibility() == View.VISIBLE || layShowOk.getVisibility() == View.VISIBLE) {
                 Timber.d("Not start, because other items visible");
                 return;
@@ -742,7 +767,9 @@ public class ScannerFragmentGoogleVisionFragment extends Fragment implements Bar
             );
         } else {
             handler.postDelayed(() -> {
-                Timber.d("Location not found yet");
+                if (MainActivity.lessonsResponce == null || MainActivity.lessonsResponce.getCurrent() == null) {
+                    Timber.d("Lesson not found yet");
+                }
                 if (fragment != null && fragment.isVisible()) {
                     if (MainActivity.location == null) {
                         fragment.showToast("Location not found yet");

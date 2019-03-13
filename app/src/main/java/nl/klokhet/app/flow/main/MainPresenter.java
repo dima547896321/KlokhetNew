@@ -3,6 +3,7 @@ package nl.klokhet.app.flow.main;
 import android.util.Log;
 
 import com.arellomobile.mvp.InjectViewState;
+import com.google.gson.Gson;
 import com.google.gson.JsonParseException;
 
 import java.util.List;
@@ -41,7 +42,9 @@ public class MainPresenter extends BasePresenter<MainView> {
     };
     private Consumer<BaseResponce<Status, LessonsResponce>> done = done1 -> {
         hideProgress();
+        Timber.d("Data resived: " + new Gson().toJson(done1.getData()));
         getViewState().showLessonsInfo(done1.getData());
+
         if (done1.getData() != null && done1.getData().getCurrent() != null) {
             getGroupInfo(
                     String.valueOf(done1.getData().getCurrent().getId()),

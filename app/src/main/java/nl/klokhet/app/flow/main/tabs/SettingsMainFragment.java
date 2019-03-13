@@ -28,6 +28,7 @@ import nl.klokhet.app.R;
 import nl.klokhet.app.data.network.responce.TeacherInfoResponce;
 import nl.klokhet.app.flow.login.LoginActivity;
 import nl.klokhet.app.flow.main.MainActivity;
+import timber.log.Timber;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -83,7 +84,8 @@ public class SettingsMainFragment extends Fragment implements View.OnClickListen
 
     public void setTeacher(TeacherInfoResponce teacher) {
         this.teacher = teacher;
-        bindTeacher();
+        if (isResumed())
+            bindTeacher();
     }
 
     @Override
@@ -105,10 +107,18 @@ public class SettingsMainFragment extends Fragment implements View.OnClickListen
             getActivity().finish();
         });
         btnManualMode.setOnClickListener(this);
+//        bindTeacher();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        bindTeacher();
     }
 
     public void bindTeacher() {
-        if(!isResumed()){
+        if (tvUserPhoto == null) {
+            Timber.d("Cannot bind teacher: tvUserPhoto is null");
             return;
         }
         if (teacher != null) {
@@ -125,7 +135,7 @@ public class SettingsMainFragment extends Fragment implements View.OnClickListen
         if (MainActivity.lessonsResponce != null) {
             if (MainActivity.lessonsResponce.getCurrent() != null && MainActivity.lessonsResponce.getCurrent().getLocationName() != null) {
                 tvSchool.setText(" " + MainActivity.lessonsResponce.getCurrent().getLocationName());
-            }else{
+            } else {
                 tvSchool.setText("");
             }
             if (MainActivity.lessonsResponce.getCurrent() != null && MainActivity.lessonsResponce.getCurrent().getName() != null) {
@@ -175,7 +185,7 @@ public class SettingsMainFragment extends Fragment implements View.OnClickListen
     }
 
     public void showManualModeDialog() {
-        if(!isResumed()){
+        if (!isResumed()) {
             return;
         }
         fragmentContainer.setVisibility(View.VISIBLE);

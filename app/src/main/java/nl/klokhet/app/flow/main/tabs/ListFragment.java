@@ -7,7 +7,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.style.TtsSpan;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +19,7 @@ import java.util.List;
 import nl.klokhet.app.R;
 import nl.klokhet.app.data.network.responce.Lesson;
 import nl.klokhet.app.data.network.responce.UserInGroup;
+import nl.klokhet.app.flow.main.MainActivity;
 import timber.log.Timber;
 
 /**
@@ -82,11 +82,31 @@ public class ListFragment extends Fragment {
         rvList.setAdapter(adapter);
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        Timber.d("onResume: " + this.getClass().getSimpleName());
+        try {
+            if (MainActivity.lessonsResponce != null) {
+                showCurrentLesson(MainActivity.lessonsResponce.getCurrent());
+            } else {
+                Timber.d("onResume: " + this.getClass().getSimpleName() + "Main lesson is nnull");
+            }
+            if (MainActivity.groupList != null) {
+                showGroupInfo(MainActivity.groupList);
+            } else {
+                Timber.d("onResume: " + this.getClass().getSimpleName() + "Main groupList is nnull");
+            }
+        } catch (Exception e) {
+            Timber.d("onResume: " + e.getMessage());
+        }
+    }
+
     public void updateUser(UserInGroup user) {
 //        StringBuffer sb = new StringBuffer();
 
 
-        for(UserInGroup u : listInAdapter){
+        for (UserInGroup u : listInAdapter) {
 //            sb.append(String.valueOf(u.getId()) + " ");
         }
 //        sb.append("\n");
@@ -96,7 +116,7 @@ public class ListFragment extends Fragment {
 //                Timber.d("Was IN");
             }
         }
-        for(UserInGroup u : listInAdapter){
+        for (UserInGroup u : listInAdapter) {
 //            sb.append(String.valueOf(u.getId()) + " ");
         }
 //        Timber.d(sb.toString());
@@ -104,7 +124,7 @@ public class ListFragment extends Fragment {
     }
 
     public void showGroupInfo(List<UserInGroup> list) {
-        if (!isResumed()){
+        if(tvAmount==null){
             return;
         }
         int in = 0;
@@ -134,8 +154,10 @@ public class ListFragment extends Fragment {
     }
 
     public void showCurrentLesson(Lesson lesson) {
-        if(isResumed() && adapter!=null) {
+        if (tvCount != null && adapter != null) {
             adapter.setLessonsResponce(lesson);
+        }else{
+            Timber.d("Null ");
         }
     }
 
