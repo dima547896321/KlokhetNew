@@ -289,6 +289,7 @@ public class ScannerFragmentGoogleVisionFragment extends Fragment implements Bar
 
     @Override
     public void onPause() {
+        super.onPause();
         if (readerFragment != null) {
             readerFragment.onPause();
         }
@@ -296,7 +297,7 @@ public class ScannerFragmentGoogleVisionFragment extends Fragment implements Bar
             alertDialogShowGps.cancel();
         }
         Timber.d(this.getClass().getSimpleName() + "onPause");
-        super.onPause();
+
     }
 
     private boolean checkPermissionsCamera() {

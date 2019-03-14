@@ -100,12 +100,15 @@
             <TextView
                 android:id="@+id/tvLesson"
                 style="@style/LessonsText"
+                android:ellipsize="end"
+                android:maxLines="1"
                 android:layout_marginBottom="5dp"
                 tools:text="asdfasdfasdfasdf" />
 
             <TextView
                 android:id="@+id/tvGroup"
                 style="@style/LessonsText"
+
                 android:layout_marginBottom="5dp"
                 tools:text="asdfasdfasdfasdf" />
 
@@ -118,6 +121,8 @@
             <TextView
                 android:id="@+id/tvLocation"
                 style="@style/LessonsText"
+                android:ellipsize="end"
+                android:maxLines="1"
                 android:layout_marginBottom="5dp"
                 tools:text="asdfasdfasdfasdf" />
 

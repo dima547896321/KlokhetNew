@@ -60,6 +60,8 @@
                 android:id="@+id/tvLesson"
                 style="@style/LessonsText"
                 android:layout_marginBottom="5dp"
+                android:ellipsize="end"
+                android:maxLines="1"
                 tools:text="asdfasdfasdfasdf" />
             <TextView
                 android:id="@+id/tvGroup"
@@ -75,6 +77,8 @@
 
             <TextView
                 android:id="@+id/tvLocation"
+                android:ellipsize="end"
+                android:maxLines="1"
                 android:layout_marginBottom="5dp"
                 style="@style/LessonsText"
                 tools:text="asdfasdfasdfasdf" />

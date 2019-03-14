@@ -69,6 +69,12 @@
                 style="@style/LessonsText"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:ellipsize="end"
+                android:lines="1"
                 android:text="" />
         </RelativeLayout>
     </RelativeLayout>
@@ -100,6 +106,9 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
+
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:layout_marginBottom="5dp"
                 android:orientation="horizontal">
 
@@ -137,6 +146,8 @@
                     <TextView
                         android:id="@+id/tvLesson"
                         android:layout_marginBottom="5dp"
+                        android:ellipsize="end"
+                        android:maxLines="1"
                         style="@style/LessonsText" />
                     <TextView
                         android:id="@+id/tvOn"

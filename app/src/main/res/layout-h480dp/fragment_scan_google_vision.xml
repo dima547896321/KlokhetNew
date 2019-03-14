@@ -101,6 +101,8 @@
                 android:id="@+id/tvLesson"
                 style="@style/LessonsText"
                 android:layout_marginBottom="5dp"
+                android:ellipsize="end"
+                android:maxLines="1"
                 tools:text="asdfasdfasdfasdf" />
 
             <TextView
@@ -119,6 +121,8 @@
                 android:id="@+id/tvLocation"
                 style="@style/LessonsText"
                 android:layout_marginBottom="5dp"
+                android:ellipsize="end"
+                android:maxLines="1"
                 tools:text="asdfasdfasdfasdf" />
 
             <TextView
